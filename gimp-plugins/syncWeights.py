@@ -54,7 +54,7 @@ def syncGit(baseLoc):
 			src_file = os.path.join(src_dir, file_)
 			dst_file = os.path.join(dst_dir, file_)
 			if os.path.exists(dst_file):
-				if os.path.samefile(src_file, dst_file):
+				if os.path.abspath(src_file) == os.path.abspath(dst_file): 
 					continue
 				os.remove(dst_file)
 			shutil.move(src_file, dst_dir)
